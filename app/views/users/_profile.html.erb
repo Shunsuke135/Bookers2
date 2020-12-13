@@ -1,0 +1,18 @@
+<table class="table">
+    <tr><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
+
+    <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+    </tr><br>
+
+    <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+    </tr>
+</table>
+<th><%= link_to edit_user_path(user), class: 'btn btn-default w-178px' do %>
+     <i class="fas fa-user-cog"></i>
+    <% end %>
+</th><br>
+
