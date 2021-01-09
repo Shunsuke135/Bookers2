@@ -15,4 +15,6 @@ end
    resource :favorites, only: [:create, :destroy]
    resources :book_comments, only: [:create, :destroy]
  end
+  get '/search' => 'search#search'
+  
 end

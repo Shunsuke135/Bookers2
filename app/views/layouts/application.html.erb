@@ -36,8 +36,21 @@
   </nav>
 </header>
 
+<p>
+   <% if user_signed_in? %>
+        <div class="container">
+          <div class="row">
+           <div class="col-md-7 offset-md-5">
+            <%= render 'layouts/searchform' %>
+           </div>
+          </div>
+        </div>
+      <% end %>
+  </p>
 
     <%= yield %>
+
+
 
     <footer>
       <div class="container">
