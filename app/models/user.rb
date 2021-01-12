@@ -34,6 +34,15 @@ class User < ApplicationRecord
   def following?(other_user)
     followings.include?(other_user)
   end
-
-
+  
+  include JpPrefecture  #都道府県コードから都道府県名に自動で変換する。
+  jp_prefecture :prefecture_code
+  
+  def prefecture_name #prefecture_nameで都道府県名を参照出来る様にする。例) @user.prefecture_nameで該当ユーザーの住所(都道府県)を表示出来る。
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+  end
+  
+  def prefecture_name=(prefecture_name)
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
 end
